@@ -28,7 +28,7 @@ app.use(
 );
 
 // Handle preflight requests for ALL routes explicitly
-app.options("*", (req, res) => {
+app.options("/(.*)", (req, res) => {
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
     res.setHeader("Access-Control-Allow-Origin", origin);
